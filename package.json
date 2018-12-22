@@ -1,0 +1,24 @@
+{
+  "name": "housekeeper",
+  "version": "1.0.0",
+  "description": "use solidity to write a simple contract on remix",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/huangbxaaa/housekeeper.git"
+  },
+  "author": "huangbx",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/huangbxaaa/housekeeper/issues"
+  },
+  "homepage": "https://github.com/huangbxaaa/housekeeper#readme",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "express": "^4.16.4",
+    "web3": "^1.0.0-beta.37"
+  }
+}
