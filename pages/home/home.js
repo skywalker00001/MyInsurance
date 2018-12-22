@@ -1,9 +1,16 @@
 let web3 = new Web3('http://localhost:8545');
 let username = '';
+serverAdd = "http://localhost:3000/home?email="+username;
+
 let user = {
     'hbx@666':"0x97993a1cac6103941512884b052bd9b3e6dd955a",
     'client@666':"0x430b291f60e91b6cb5730bae8225330f594d7dfe"
 };
+
+$.post(serverAdd, {'name': username}, function (data) {
+    console.log("haha");
+    console.log(data);
+});
 
 function getUrlParam(name) {
     var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)"); //构造一个含有目标参数的正则表达式对象
@@ -17,9 +24,7 @@ let abi = [{ "constant": false, "inputs": [ { "name": "src", "type": "address" }
 let address = "0x036121c0bb62df9aa0bea4ebf19fa7a8f93ee346";
 let houseContract = new web3.eth.Contract(abi, address);
 
-$("#cmpname").text("HI, " + username);
-
-$("#update").click(function () {
+function myupdate() {
     houseContract.methods.lastupdateProfit(user[username]).call({from: user[username]}).then(function (result) {
         console.log(result);
         $('#prftUpdate').text(result);
@@ -31,12 +36,12 @@ $("#update").click(function () {
     });
     houseContract.methods.numForRent(user[username]).call({from: user[username]}).then(function (result) {
         console.log(result);
-        $('#rentN').text(result);
+        $('#NumforRent').text(result);
     });
 
     houseContract.methods.numForLive(user[username]).call({from: user[username]}).then(function (result) {
         console.log(result);
-        $('#rentL').text(result);
+        $('#NumforLive').text(result);
     });
 
     houseContract.methods.state(user[username]).call({from: user[username]}).then(function (result) {
@@ -49,22 +54,66 @@ $("#update").click(function () {
             $('#mycoin').text(result);
 
         });
+
+    houseContract.methods.getEnergy(user[username]).call({from:user[username]}).then(function (result) {
+        console.log(result);
+        $("#tenergy").text(result);
+
+    })
+
+    houseContract.methods.getProfit(user[username]).call({from:user[username]}).then(function (result) {
+        console.log(result);
+        $("#tprofit").text(result);
+
+    })
+
+    houseContract.methods.getLoss(user[username]).call({from:user[username]}).then(function (result) {
+        console.log(result);
+        $("#thouse").text(result);
+
+    })
+
+}
+
+
+
+$("#cmpname").text("HI, " + username);
+
+$("#update").click(function () {
+    myupdate()
+
 });
 
 $("#buy").click(function () {
-    $.get('http://localhost:3000/home', {command: "buy"})
-        .done(function (data) {
-            console.log(data);
+    profit = parseInt($("#tprofit").text());
+    if (profit < 20000) {
+        alert("you have no money left");
+    }
+    else {
+        NumforRent = $("#NumforRent").text();
+        NumforRent ++;
+        profit -= 20000;
+        $("#NumforRent").text(NumforRent);
+        $("#tprofit").text(profit);
 
-        });
+    }
+
 
 });
 
 $("#sell").click(function () {
-    $.get('http://localhost:3000/home', {command: "sell"})
-        .done(function (data) {
-            console.log(data);
+    NumforRent = parseInt($("#NumforRent").text());
+    profit = parseInt($("#tprofit").text());
+    if (NumforRent <= 0) {
+        alert("you have no house for sell")
+    }
+    else {
+        NumforRent--;
+        $("#NumforRent").text(NumforRent);
+        profit += 20000;
+        $("#tprofit").text(profit);
 
-        });
+    }
+
 });
 
