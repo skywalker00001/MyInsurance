@@ -25,3 +25,24 @@ use solidity to write a simple contract on remix
 - 取消资格：当居民的energy为0时会被取消资格并删除资产，因此设置mapping变量来记录不同居民的状态（合格或者不合格）
 - 房屋的耐久值：设置变量为1000
 - 房屋的价格：由于不对房屋进行区分，因此房屋价格统一设定
+
+
+### 食用方法
+- 打开私链并运行
+
+```
+geth --datadir "./" --networkid 20181221 --rpc --rpccorsdomain "*" --nodiscover --rpcport 8545 console
+```
+
+- 解锁账户
+
+```
+personal.unlockAccount(eth.accounts[0],"123",0)
+```
+
+- 打开remix网页端并将文件夹中的sol文件复制进去，compile
+- 成功之后选择run->environment: web3 provider -> 端口：8545
+- 点击deploy
+- run板块获得地址和合约api，替换home.js 文件中的同名变量
+- 运行app.js
+- 通过localhost:3000/signin 访问
