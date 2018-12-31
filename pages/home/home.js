@@ -3,8 +3,8 @@ let username = '';
 serverAdd = "http://localhost:3000/home?email="+username;
 
 let user = {
-    'hbx@666':"0x97993a1cac6103941512884b052bd9b3e6dd955a",
-    'client@666':"0x430b291f60e91b6cb5730bae8225330f594d7dfe"
+    '123456':"0x88bd7f11fa82549437a73c4e7ebb61868f8557ed",
+    '111':"0x09804ee139a8f8858cdade5456ffc53f5aede31f"
 };
 
 $.post(serverAdd, {'name': username}, function (data) {
@@ -24,342 +24,333 @@ username = getUrlParam('email');
 
 
 let abi = [
-    {
-        "constant": false,
-        "inputs": [
-            {
-                "name": "src",
-                "type": "address"
-            },
-            {
-                "name": "des",
-                "type": "address"
-            },
-            {
-                "name": "n",
-                "type": "uint256"
-            }
-        ],
-        "name": "buyHouses",
-        "outputs": [
-            {
-                "name": "",
-                "type": "bool"
-            }
-        ],
-        "payable": false,
-        "stateMutability": "nonpayable",
-        "type": "function"
-    },
-    {
-        "constant": false,
-        "inputs": [
-            {
-                "name": "adr",
-                "type": "address"
-            }
-        ],
-        "name": "getEnergy",
-        "outputs": [
-            {
-                "name": "",
-                "type": "uint256"
-            }
-        ],
-        "payable": false,
-        "stateMutability": "nonpayable",
-        "type": "function"
-    },
-    {
-        "constant": false,
-        "inputs": [
-            {
-                "name": "adr",
-                "type": "address"
-            }
-        ],
-        "name": "getLoss",
-        "outputs": [],
-        "payable": false,
-        "stateMutability": "nonpayable",
-        "type": "function"
-    },
-    {
-        "constant": false,
-        "inputs": [
-            {
-                "name": "adr",
-                "type": "address"
-            }
-        ],
-        "name": "getProfit",
-        "outputs": [
-            {
-                "name": "",
-                "type": "uint256"
-            }
-        ],
-        "payable": false,
-        "stateMutability": "nonpayable",
-        "type": "function"
-    },
-    {
-        "constant": false,
-        "inputs": [
-            {
-                "name": "energyUsed",
-                "type": "uint256"
-            },
-            {
-                "name": "adr",
-                "type": "address"
-            }
-        ],
-        "name": "repair",
-        "outputs": [],
-        "payable": false,
-        "stateMutability": "nonpayable",
-        "type": "function"
-    },
-    {
-        "constant": false,
-        "inputs": [
-            {
-                "name": "src",
-                "type": "address"
-            },
-            {
-                "name": "des",
-                "type": "address"
-            },
-            {
-                "name": "n",
-                "type": "uint256"
-            }
-        ],
-        "name": "sellHouses",
-        "outputs": [
-            {
-                "name": "",
-                "type": "bool"
-            }
-        ],
-        "payable": false,
-        "stateMutability": "nonpayable",
-        "type": "function"
-    },
-    {
-        "inputs": [],
-        "payable": false,
-        "stateMutability": "nonpayable",
-        "type": "constructor"
-    },
-    {
-        "constant": true,
-        "inputs": [],
-        "name": "currAddress",
-        "outputs": [
-            {
-                "name": "",
-                "type": "address"
-            }
-        ],
-        "payable": false,
-        "stateMutability": "view",
-        "type": "function"
-    },
-    {
-        "constant": true,
-        "inputs": [
-            {
-                "name": "",
-                "type": "address"
-            }
-        ],
-        "name": "energies",
-        "outputs": [
-            {
-                "name": "",
-                "type": "uint256"
-            }
-        ],
-        "payable": false,
-        "stateMutability": "view",
-        "type": "function"
-    },
-    {
-        "constant": true,
-        "inputs": [
-            {
-                "name": "",
-                "type": "address"
-            }
-        ],
-        "name": "lastupdateEnergy",
-        "outputs": [
-            {
-                "name": "",
-                "type": "uint256"
-            }
-        ],
-        "payable": false,
-        "stateMutability": "view",
-        "type": "function"
-    },
-    {
-        "constant": true,
-        "inputs": [
-            {
-                "name": "",
-                "type": "address"
-            }
-        ],
-        "name": "lastupdateLoss",
-        "outputs": [
-            {
-                "name": "",
-                "type": "uint256"
-            }
-        ],
-        "payable": false,
-        "stateMutability": "view",
-        "type": "function"
-    },
-    {
-        "constant": true,
-        "inputs": [
-            {
-                "name": "",
-                "type": "address"
-            }
-        ],
-        "name": "lastupdateProfit",
-        "outputs": [
-            {
-                "name": "",
-                "type": "uint256"
-            }
-        ],
-        "payable": false,
-        "stateMutability": "view",
-        "type": "function"
-    },
-    {
-        "constant": true,
-        "inputs": [
-            {
-                "name": "",
-                "type": "address"
-            }
-        ],
-        "name": "LossforLive",
-        "outputs": [
-            {
-                "name": "",
-                "type": "uint256"
-            }
-        ],
-        "payable": false,
-        "stateMutability": "view",
-        "type": "function"
-    },
-    {
-        "constant": true,
-        "inputs": [
-            {
-                "name": "",
-                "type": "address"
-            }
-        ],
-        "name": "LossforRent",
-        "outputs": [
-            {
-                "name": "",
-                "type": "uint256"
-            }
-        ],
-        "payable": false,
-        "stateMutability": "view",
-        "type": "function"
-    },
-    {
-        "constant": true,
-        "inputs": [
-            {
-                "name": "",
-                "type": "address"
-            }
-        ],
-        "name": "numForLive",
-        "outputs": [
-            {
-                "name": "",
-                "type": "uint256"
-            }
-        ],
-        "payable": false,
-        "stateMutability": "view",
-        "type": "function"
-    },
-    {
-        "constant": true,
-        "inputs": [
-            {
-                "name": "",
-                "type": "address"
-            }
-        ],
-        "name": "numForRent",
-        "outputs": [
-            {
-                "name": "",
-                "type": "uint256"
-            }
-        ],
-        "payable": false,
-        "stateMutability": "view",
-        "type": "function"
-    },
-    {
-        "constant": true,
-        "inputs": [
-            {
-                "name": "",
-                "type": "address"
-            }
-        ],
-        "name": "profit",
-        "outputs": [
-            {
-                "name": "",
-                "type": "uint256"
-            }
-        ],
-        "payable": false,
-        "stateMutability": "view",
-        "type": "function"
-    },
-    {
-        "constant": true,
-        "inputs": [
-            {
-                "name": "",
-                "type": "address"
-            }
-        ],
-        "name": "state",
-        "outputs": [
-            {
-                "name": "",
-                "type": "bool"
-            }
-        ],
-        "payable": false,
-        "stateMutability": "view",
-        "type": "function"
-    }
+	{
+		"constant": false,
+		"inputs": [
+			{
+				"name": "name_",
+				"type": "string"
+			},
+			{
+				"name": "notary_",
+				"type": "address"
+			},
+			{
+				"name": "timeLimit_",
+				"type": "uint256"
+			},
+			{
+				"name": "insuranceMoney_",
+				"type": "uint256"
+			},
+			{
+				"name": "insuranceProceed_",
+				"type": "uint256"
+			},
+			{
+				"name": "copies_",
+				"type": "uint256"
+			}
+		],
+		"name": "generateInsurance",
+		"outputs": [],
+		"payable": true,
+		"stateMutability": "payable",
+		"type": "function"
+	},
+	{
+		"constant": false,
+		"inputs": [
+			{
+				"name": "holder",
+				"type": "address"
+			},
+			{
+				"name": "index",
+				"type": "uint256"
+			}
+		],
+		"name": "getInsuranceMoneyIntoCompany",
+		"outputs": [],
+		"payable": false,
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"constant": false,
+		"inputs": [
+			{
+				"name": "index",
+				"type": "uint256"
+			}
+		],
+		"name": "insure",
+		"outputs": [],
+		"payable": true,
+		"stateMutability": "payable",
+		"type": "function"
+	},
+	{
+		"constant": false,
+		"inputs": [
+			{
+				"name": "holder",
+				"type": "address"
+			},
+			{
+				"name": "index",
+				"type": "uint256"
+			}
+		],
+		"name": "meetInsuranceCondition",
+		"outputs": [],
+		"payable": false,
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"payable": false,
+		"stateMutability": "nonpayable",
+		"type": "constructor"
+	},
+	{
+		"constant": true,
+		"inputs": [],
+		"name": "assurerCompany",
+		"outputs": [
+			{
+				"name": "",
+				"type": "address"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"constant": true,
+		"inputs": [],
+		"name": "gentInsurancesNumber",
+		"outputs": [
+			{
+				"name": "insurancesNumber_",
+				"type": "uint256"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"constant": true,
+		"inputs": [
+			{
+				"name": "index",
+				"type": "uint256"
+			}
+		],
+		"name": "gentOneInsurance",
+		"outputs": [
+			{
+				"name": "name_",
+				"type": "string"
+			},
+			{
+				"name": "notary_",
+				"type": "address"
+			},
+			{
+				"name": "timeLimit_",
+				"type": "uint256"
+			},
+			{
+				"name": "insuranceMoney_",
+				"type": "uint256"
+			},
+			{
+				"name": "insuranceProceed_",
+				"type": "uint256"
+			},
+			{
+				"name": "copies_",
+				"type": "uint256"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"constant": true,
+		"inputs": [],
+		"name": "getAssurerCompany",
+		"outputs": [
+			{
+				"name": "assurerCompany_",
+				"type": "address"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"constant": true,
+		"inputs": [],
+		"name": "getBalance",
+		"outputs": [
+			{
+				"name": "balance_",
+				"type": "uint256"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"constant": true,
+		"inputs": [
+			{
+				"name": "holder",
+				"type": "address"
+			}
+		],
+		"name": "getHolderInsurancesNumber",
+		"outputs": [
+			{
+				"name": "myInsurancesNumber_",
+				"type": "uint256"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"constant": true,
+		"inputs": [
+			{
+				"name": "holder",
+				"type": "address"
+			},
+			{
+				"name": "index",
+				"type": "uint256"
+			}
+		],
+		"name": "getHolderOneInsurance",
+		"outputs": [
+			{
+				"name": "name_",
+				"type": "string"
+			},
+			{
+				"name": "notary_",
+				"type": "address"
+			},
+			{
+				"name": "startTime",
+				"type": "uint256"
+			},
+			{
+				"name": "timeLimit_",
+				"type": "uint256"
+			},
+			{
+				"name": "insuranceMoney_",
+				"type": "uint256"
+			},
+			{
+				"name": "insuranceProceed_",
+				"type": "uint256"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"constant": true,
+		"inputs": [
+			{
+				"name": "holder",
+				"type": "address"
+			},
+			{
+				"name": "index",
+				"type": "uint256"
+			}
+		],
+		"name": "getInsuranceLastTime",
+		"outputs": [
+			{
+				"name": "lastTime",
+				"type": "uint256"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"constant": true,
+		"inputs": [
+			{
+				"name": "",
+				"type": "address"
+			},
+			{
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"name": "holders",
+		"outputs": [
+			{
+				"name": "name",
+				"type": "string"
+			},
+			{
+				"name": "policyHolder",
+				"type": "address"
+			},
+			{
+				"name": "notary",
+				"type": "address"
+			},
+			{
+				"name": "startTime",
+				"type": "uint256"
+			},
+			{
+				"name": "timeLimit",
+				"type": "uint256"
+			},
+			{
+				"name": "insuranceMoney",
+				"type": "uint256"
+			},
+			{
+				"name": "insuranceProceed",
+				"type": "uint256"
+			},
+			{
+				"name": "valid",
+				"type": "bool"
+			},
+			{
+				"name": "copies",
+				"type": "uint256"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	}
 ];
-let address = "0xd3671222a9df024f8d0e12c07aa2f0fd7cebd46d";
+let address = "0xb5fb3736f3d93ee8412bb908db76f0487970e072";
 let houseContract = new web3.eth.Contract(abi, address);
 
 function myupdate() {
@@ -415,12 +406,29 @@ function myupdate() {
 
 
 
-$("#cmpname").text("HI, " + username);
+$("#cmpname").text("HI, 123456. Your balance is: 1000" );
 
 $("#update").click(function () {
     myupdate()
 
 });
+
+$("#look").click(function () {
+    if ($("#xxx").text() != "") 
+        $("#xxx").text("");
+    else {
+
+        houseContract.methods.assurerCompany().call({from:user[username]}).then(function (result) {
+            console.log(result);
+            $("#xxx").text(result);
+    
+        })
+    }
+
+
+
+});
+
 
 $("#buy").click(function () {
     profit = parseInt($("#tprofit").text());

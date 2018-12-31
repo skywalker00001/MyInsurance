@@ -1,11 +1,12 @@
 let express = require('express');
 let bodyParser = require('body-parser');
+// let jade = require('jade');
 //let Web3 = require('web3');
 
 let app = express();
 let user = {
-    'hbx@666':"0x97993a1cac6103941512884b052bd9b3e6dd955a",
-    'client@666':"0x430b291f60e91b6cb5730bae8225330f594d7dfe"
+    '123456':"0x88bd7f11fa82549437a73c4e7ebb61868f8557ed",
+    '111':"0x09804ee139a8f8858cdade5456ffc53f5aede31f"
 };
 
 
@@ -21,20 +22,19 @@ app.route('/signin')
 
     .post(function (req, res) {
 
-        if (req.body.email in user) {
+        if (req.body.Username in user) {
             //res.send("Welcome");
-            res.redirect('/home?' + 'email=' + req.body.email);
+            res.redirect('/home?' + 'username=' + req.body.username);
         }
         else {
-            res.send("accounts not exist");
+            res.send("Wrong username or address!");
         }
-
     });
 
 app.route('/home')
     .get(function (req, res)  {
         // console.log(req.query);
-        // email = req.query.email;
+        // username = req.query.username;
         res.sendfile('pages/home/home.html');
 
     })
