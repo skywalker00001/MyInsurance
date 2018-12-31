@@ -1,5 +1,5 @@
 {
-  "name": "housekeeper",
+  "name": "MyInsurance",
   "version": "1.0.0",
   "description": "use solidity to write a simple contract on remix",
   "main": "app.js",
@@ -8,14 +8,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/huangbxaaa/housekeeper.git"
+    "url": "git+https://github.com/skywalker00001/MyInsurance.git"
   },
   "author": "huangbx",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/huangbxaaa/housekeeper/issues"
+    "url": "https://github.com/skywalker00001/MyInsurance/issues"
   },
-  "homepage": "https://github.com/huangbxaaa/housekeeper#readme",
+  "homepage": "https://github.com/skywalker00001/MyInsurance#readme",
   "dependencies": {
     "body-parser": "^1.18.3",
     "express": "^4.16.4",
