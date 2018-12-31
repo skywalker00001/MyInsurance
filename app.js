@@ -8,6 +8,7 @@ let user = {
     'client@666':"0x430b291f60e91b6cb5730bae8225330f594d7dfe"
 };
 
+//-sss
 
 app.use(express.static('pages'));
 app.use(bodyParser.urlencoded({extended: false}));
